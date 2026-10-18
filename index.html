@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Sahil Kumar, a Computer Science student building AI/ML and web projects.">
+  <title>Sahil Kumar | Portfolio</title>
+  <style>
+    :root { --bg:#0c0a1f; --card:#16132e; --line:#2c2754; --text:#e9e7f7; --muted:#a8a4c9; --purple:#8b5cf6; --purple-d:#6d3fe0; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:4.5rem; }
+    body { margin:0; font:1rem/1.7 "Segoe UI", Tahoma, Verdana, sans-serif; color:var(--text); background:var(--bg); }
+    a { color:#b79bff; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline:3px solid #fff; outline-offset:2px; }
+    header { position:sticky; top:0; z-index:5; background:rgba(12,10,31,.95); border-bottom:1px solid var(--line); display:flex; flex-wrap:wrap; gap:.4rem 2rem; align-items:center; justify-content:space-between; padding:.8rem 1.5rem; }
+    header h1 { margin:0; font-size:1.25rem; }
+    header h1 span { color:var(--purple); }
+    nav a { color:var(--text); text-decoration:none; margin-right:1.1rem; padding:.2rem 0; border-bottom:2px solid transparent; }
+    nav a:hover { border-color:var(--purple); }
+    main { max-width:1000px; margin:0 auto; padding:0 1.5rem; }
+    section { padding:4rem 0 .5rem; }
+    h2 { font-size:1.9rem; margin:0 0 1.2rem; }
+    h2 span, .hero h2 span { color:var(--purple); }
+    .hero { display:grid; grid-template-columns:1.3fr 1fr; gap:2.5rem; align-items:center; padding-top:3rem; }
+    .hero h2 { font-size:clamp(2.2rem,6vw,3.6rem); line-height:1.1; margin:.3rem 0 1rem; }
+    .tag { color:var(--muted); letter-spacing:.08em; font-size:.9rem; margin:0; }
+    .hero img, .about img { width:100%; max-width:380px; aspect-ratio:1; object-fit:cover; border-radius:20px; border:2px solid var(--purple); box-shadow:0 0 0 8px rgba(139,92,246,.15), 0 20px 50px rgba(0,0,0,.5); justify-self:center; object-position:center top; }
+    .btn { display:inline-block; background:var(--purple); color:#fff; padding:.7rem 1.5rem; border-radius:999px; text-decoration:none; border:2px solid var(--purple); font-size:1rem; cursor:pointer; }
+    .btn:hover { background:var(--purple-d); }
+    .btn.ghost { background:transparent; margin-left:.6rem; }
+    .about { display:grid; grid-template-columns:1fr 2fr; gap:2.5rem; align-items:center; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.4rem; }
+    article { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    article > div { padding:1rem 1.2rem 1.2rem; }
+    article img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; }
+    article h3 { margin:0 0 .3rem; font-size:1.15rem; }
+    article p { margin:0 0 .6rem; color:var(--muted); }
+    .chips { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.4rem; }
+    .chips li { background:#0c0a1f; border:1px solid var(--line); border-radius:6px; padding:.1rem .6rem; font-size:.85rem; }
+    .skills article { padding:1.1rem 1.2rem; }
+    .skills ul { margin:0; padding-left:1.2rem; color:var(--muted); }
+    .job { border-left:3px solid var(--purple); padding:0 0 1.2rem 1.2rem; }
+    .job h3 { margin:0; font-size:1.1rem; }
+    .job time { color:var(--muted); font-size:.9rem; }
+    .job ul { margin:.4rem 0 0; padding-left:1.1rem; color:var(--muted); }
+    form { display:grid; gap:1rem; max-width:560px; }
+    label { font-weight:600; display:block; margin-bottom:.25rem; }
+    input, textarea { width:100%; padding:.7rem; font:inherit; color:var(--text); background:var(--card); border:2px solid var(--line); border-radius:8px; }
+    input:invalid:not(:placeholder-shown), textarea:invalid:not(:placeholder-shown) { border-color:#ff6b6b; }
+    form .btn { justify-self:start; }
+    footer { margin-top:4rem; padding:1.5rem; text-align:center; border-top:1px solid var(--line); color:var(--muted); }
+    header h1 small { display:block; font-size:.75rem; font-weight:400; color:var(--muted); }
+    .btn.small { padding:.4rem 1.1rem; font-size:.95rem; background:transparent; }
+    .btn.small:hover { background:var(--purple); }
+    .facts { padding-top:2rem; }
+    .facts ul { list-style:none; margin:0; padding:0; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+    .facts li { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem 1.2rem; color:var(--muted); }
+    .facts strong { display:block; color:var(--text); font-size:1.1rem; }
+    .chips.big li { padding:.4rem 1rem; font-size:1rem; background:var(--card); }
+    blockquote { margin:0 0 1rem; font-style:italic; font-size:1.1rem; color:var(--text); }
+    blockquote cite { display:block; font-size:.9rem; color:var(--muted); }
+    .contact-info { list-style:none; padding:0; margin:0 0 1.2rem; color:var(--muted); }
+    .contact-info strong { color:var(--text); }
+    .connect article { padding:1.3rem; text-align:center; }
+    .connect h3 { margin:0 0 .3rem; }
+    .connect p { margin:0 0 1rem; }
+    .btn.wa { background:#25d366; border-color:#25d366; color:#06210f; font-weight:600; }
+    .btn.wa:hover { background:#1ebe5a; }
+    .btn.ig { background:linear-gradient(45deg,#f09433,#dc2743,#bc1888); border-color:transparent; font-weight:600; }
+    .btn.ig:hover { filter:brightness(1.1); }
+    @media (max-width:700px) { .hero, .about { grid-template-columns:1fr; } .hero img { grid-row:1; max-width:260px; } .btn.ghost { margin:.6rem 0 0; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span>SK</span> Sahil Kumar <small>Build | Learn | Grow</small></h1>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#connect">Connect</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn small" href="#contact">Let's connect</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="tag">COMPUTER SCIENCE STUDENT | DEVELOPER | LEARNER</p>
+        <h2 id="hero-title">Hi, I'm <span>Sahil Kumar</span></h2>
+        <p>A Computer Science and Engineering student passionate about building impactful solutions with AI/ML, web development and data science. I love turning ideas into real-world products.</p>
+        <p>
+          <a class="btn" href="#projects">View my projects</a>
+          <a class="btn ghost" href="https://github.com/sahil080805" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+      </div>
+      <img src="images/profile-hero.jpg" alt="Sahil Kumar smiling and looking to the side, wearing a black blazer and white shirt in front of a brick building" width="720" height="720">
+    </section>
+
+    <section class="facts" aria-label="Quick facts">
+      <ul class="grid">
+        <li><strong>CSE student</strong>IILM University, Greater Noida</li>
+        <li><strong>5+ projects</strong>AI/ML and web development</li>
+        <li><strong>3 internships</strong>Web, AI and brand research</li>
+        <li><strong>Always learning</strong>AI/ML, web dev and real impact</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About <span>me</span></h2>
+      <div class="about">
+        <img src="images/profile.jpg" alt="Portrait of Sahil Kumar in a black blazer and white shirt, smiling at the camera" width="720" height="720" loading="lazy">
+        <div>
+          <p>I'm a Computer Science and Engineering student at IILM University, Greater Noida, who enjoys building things and learning by doing.</p>
+          <p>I have worked on web development and AI/ML projects, and I have internship experience in web development, artificial intelligence and brand research.</p>
+          <p>Outside of code, I enjoy cricket. I speak Hindi and English.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Featured <span>projects</span></h2>
+      <div class="grid">
+        <article>
+          <img src="images/project-ethical-ai.jpg" alt="Ethical AI and Bias Detection dashboard showing fairness metrics and charts" loading="lazy">
+          <div>
+            <h3>Ethical AI &amp; Bias Detection</h3>
+            <p>Checking machine-learning predictions for fairness on the Adult Income dataset, with preprocessing, classification and fairness metrics.</p>
+            <ul class="chips"><li>Python</li><li>Scikit-learn</li><li>Fairlearn</li></ul>
+          </div>
+        </article>
+        <article>
+          <img src="images/project-student-prediction.jpg" alt="EduPredict dashboard predicting student performance with feature importance charts" loading="lazy">
+          <div>
+            <h3>Student Performance Prediction</h3>
+            <p>Predicting student performance with machine learning to find the key factors and identify at-risk students early.</p>
+            <ul class="chips"><li>Python</li><li>Pandas</li><li>Scikit-learn</li><li>Matplotlib</li></ul>
+          </div>
+        </article>
+        <article>
+          <img src="images/project-suraj-freight.jpg" alt="Suraj Freight Carrier website shown on a laptop and a phone with a red cargo truck" loading="lazy">
+          <div>
+            <h3>Suraj Freight Carrier Website</h3>
+            <p>A logistics website with booking, tracking, admin features, WhatsApp support and a PhonePe QR payment flow.</p>
+            <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Bootstrap</li></ul>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h3>Air Quality Analysis &amp; Forecasting</h3>
+            <p>Time-series forecasting of AQI and pollution data for major Indian cities.</p>
+            <ul class="chips"><li>Python</li><li>ARIMA</li><li>Prophet</li></ul>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h3>SmartHire: AI Recruitment Concept</h3>
+            <p>The architecture and workflow for an AI-assisted recruitment platform.</p>
+            <ul class="chips"><li>AI</li><li>System design</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="stack-title">
+      <h2 id="stack-title">Tech <span>stack</span></h2>
+      <ul class="chips big">
+        <li>Python</li><li>C/C++</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>Scikit-learn</li><li>Pandas</li><li>Matplotlib</li><li>Jupyter</li><li>Git and GitHub</li><li>VS Code</li>
+      </ul>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2>My <span>skills</span></h2>
+      <div class="grid">
+        <article>
+          <h3>Programming</h3>
+          <ul><li>C and C++</li><li>Python</li><li>JavaScript</li></ul>
+        </article>
+        <article>
+          <h3>Web development</h3>
+          <ul><li>HTML and CSS</li><li>Responsive web design</li><li>UI/UX</li></ul>
+        </article>
+        <article>
+          <h3>Tools</h3>
+          <ul><li>Git and GitHub</li><li>VS Code</li><li>API integration</li><li>Testing and debugging</li></ul>
+        </article>
+        <article>
+          <h3>AI, ML and data</h3>
+          <ul><li>AI/ML fundamentals</li><li>Scikit-learn</li><li>Data cleaning and EDA</li><li>ARIMA and Prophet</li></ul>
+        </article>
+        <article>
+          <h3>Strengths</h3>
+          <ol><li>Problem solving</li><li>Teamwork</li><li>Communication</li><li>Research</li><li>Creativity</li></ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience &amp; <span>learning</span></h2>
+      <div class="job">
+        <h3>Web Developer Intern, Captivating Experiences &amp; Consulting</h3>
+        <time>1 Jun 2026 to 16 Aug 2026</time>
+        <ul>
+          <li>Built web pages with HTML, CSS and JavaScript, with responsive layouts.</li>
+          <li>Used Git and GitHub, API integration, testing and debugging.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Artificial Intelligence Intern, Sparkiit</h3>
+        <time>5 Nov 2025 to 4 Jan 2026</time>
+        <ul><li>Gained practical exposure to AI tools and professional workflows.</li></ul>
+      </div>
+      <div class="job">
+        <h3>Intern, Brand Research &amp; Analysis, Kavira Care</h3>
+        <time>2026</time>
+        <ul><li>Researched competitors, products and audience, and prepared research deliverables.</li></ul>
+      </div>
+      <div class="job">
+        <h3>Certifications</h3>
+        <ul>
+          <li>Foundation of Artificial Intelligence, Sparkiit</li>
+          <li>Cyber Job Simulation, Deloitte (November 2025)</li>
+          <li>AI Tool Workshop, 10x (October 2025)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="connect" class="connect">
+      <h2>Connect <span>with me</span></h2>
+      <div class="grid">
+        <article>
+          <h3>WhatsApp</h3>
+          <p>Message me directly on 7717765967.</p>
+          <a class="btn wa" href="https://wa.me/917717765967?text=Hi%20Sahil%2C%20I%20saw%20your%20portfolio." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        </article>
+        <article>
+          <h3>Instagram</h3>
+          <p>Follow me at @sahillll0808.</p>
+          <a class="btn ig" href="https://www.instagram.com/sahillll0808" target="_blank" rel="noopener noreferrer">Visit my Instagram</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get in <span>touch</span></h2>
+      <ul class="contact-info">
+        <li><strong>Email:</strong> <a href="mailto:Sahil080805@gmail.com">Sahil080805@gmail.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+917717765967">7717765967</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/sahil080805" target="_blank" rel="noopener noreferrer">github.com/sahil080805</a></li>
+        <li><strong>Location:</strong> Greater Noida, India</li>
+      </ul>
+      <p>Or send me a message and your email app will open with it ready to send.</p>
+      <form action="mailto:Sahil080805@gmail.com" method="post" enctype="text/plain">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required minlength="2" maxlength="60" placeholder="Your full name" autocomplete="name">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500" placeholder="Write at least 10 characters"></textarea>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <blockquote>"Small steps every day lead to big results." <cite>Sahil Kumar</cite></blockquote>
+    <p>Greater Noida, India &bull; <a href="mailto:Sahil080805@gmail.com">Sahil080805@gmail.com</a></p>
+    <p>&copy; 2026 Sahil Kumar. <a href="#about">Back to top</a></p>
+  </footer>
+</body>
+</html>
